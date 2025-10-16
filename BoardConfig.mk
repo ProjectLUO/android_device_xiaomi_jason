@@ -39,7 +39,7 @@ $(call project-set-path,qcom-camera,$(DEVICE_PATH)/camera)
 
 # Display
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x00002000U
-TARGET_SCREEN_DENSITY := 420
+TARGET_SCREEN_DENSITY := 240
 
 # Mainfest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest.xml
