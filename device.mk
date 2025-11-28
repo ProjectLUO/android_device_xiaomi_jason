@@ -129,9 +129,9 @@ PRODUCT_PACKAGES += \
 # Inherit from MindTheGApps
 ifeq ($(WITH_GAPPS), true)
 $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
-LINEAGE_BUILDTYPE := RELEASE-GAPPS
+RELEASE_TYPE := RELEASE
 else
-LINEAGE_BUILDTYPE := RELEASE
+RELEASE_TYPE := SNAPSHOT
 endif
 
 # Inherit the proprietary files
