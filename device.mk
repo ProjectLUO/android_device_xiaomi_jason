@@ -126,5 +126,13 @@ PRODUCT_PACKAGES += \
     JasonWifiOverlay \
     readmac
 
+# Inherit from MindTheGApps
+ifeq ($(WITH_GAPPS), true)
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+LINEAGE_BUILDTYPE := RELEASE-GAPPS
+else
+LINEAGE_BUILDTYPE := RELEASE
+endif
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/jason/jason-vendor.mk)
