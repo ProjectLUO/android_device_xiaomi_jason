@@ -128,7 +128,15 @@ PRODUCT_PACKAGES += \
 
 # Inherit from MindTheGApps
 ifeq ($(WITH_GAPPS), true)
-$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+#
+# GMS package includes a few prebuilt AOSP modules which should be preloaded
+# in the system partition. To make sure the GMS build configuration works
+# with the Android Build system, PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS
+# is set to 'relaxed' and an allowlist of GMS modules in the system partition
+# is added here. For more information, please refer to
+# https://source.android.com/devices/bootloader/partitions/product-interfaces
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+include vendor/partner_gms/products/gms_product_enforcement_allow_list.mk
 RELEASE_TYPE := RELEASE
 else
 RELEASE_TYPE := SNAPSHOT
