@@ -127,7 +127,7 @@ PRODUCT_PACKAGES += \
     readmac
 
 # Inherit from MindTheGApps
-ifeq ($(WITH_GAPPS), true)
+ifeq ($(WITH_GMS), true)
 #
 # GMS package includes a few prebuilt AOSP modules which should be preloaded
 # in the system partition. To make sure the GMS build configuration works
